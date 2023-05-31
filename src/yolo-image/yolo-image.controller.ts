@@ -18,6 +18,6 @@ export class YOLOImageController {
 
         this.aiImageService.emitYOLOImage(yoloImage);
 
-        return {msg: 'Image sent to dashoard'};
+        // return {msg: 'Image sent to dashoard'};
     }
 }
