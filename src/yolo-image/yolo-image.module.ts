@@ -7,4 +7,4 @@ import { YOLOImageService } from './yolo-image.service';
   controllers: [YOLOImageController],
   providers: [YOLOImageService],
 })
-export class AIImageModule {}
+export class YOLOImageModule {}

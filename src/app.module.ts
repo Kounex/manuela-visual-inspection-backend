@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AIImageModule } from './image/yolo-image.module';
+import { YOLOImageModule } from './yolo-image/yolo-image.module';
 import { SocketModule } from './socket/module';
 
 @Module({
-  imports: [SocketModule, AIImageModule],
+  imports: [SocketModule, YOLOImageModule],
   controllers: [],
   providers: [],
 })
