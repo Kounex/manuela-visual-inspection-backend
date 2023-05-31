@@ -1,16 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { WebSocketServer } from '@nestjs/websockets';
 import { Server } from 'socket.io';
-import { AIImage } from './dtos/ai-image.dto';
+import { YOLOImage } from './dtos/yolo-image.dto';
 
 
 @Injectable()
-export class AIImageService {
+export class YOLOImageService {
 
     @WebSocketServer()
     server: Server;
 
-     emitAIImage(aiImage: AIImage): void {
-        this.server.emit('server2ui2', aiImage);
+     emitYOLOImage(yoloImage: YOLOImage): void {
+        this.server.emit('server2ui2', yoloImage);
     }
 }

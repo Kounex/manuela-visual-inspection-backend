@@ -1,11 +1,11 @@
 import { Body, Controller, Header, Post } from '@nestjs/common';
-import { AIImageService } from './ai-image.service';
-import { AIImage } from './dtos/ai-image.dto';
+import { YOLOImage } from './dtos/yolo-image.dto';
+import { YOLOImageService } from './yolo-image.service';
 
 @Controller()
-export class AIImageController {
+export class YOLOImageController {
 
-    constructor(private aiImageService: AIImageService) { }
+    constructor(private aiImageService: YOLOImageService) { }
 
     @Post('/')
     @Header('Cache-Control', 'none')
@@ -13,8 +13,10 @@ export class AIImageController {
     @Header('Ce-specversion', '1.0')
     @Header('Ce-Source', 'manuela/eventing/image-processor')
     @Header('Ce-Type', 'manuela.image-processor.response')
-    public receiveAIImage(@Body() aiImage: AIImage) {
-        this.aiImageService.emitAIImage(aiImage);
+    public receiveAIImage(@Body() yoloImage: YOLOImage) {
+        console.log(`Received Image: ${yoloImage.id}`);
+
+        this.aiImageService.emitYOLOImage(yoloImage);
 
         return {msg: 'Image sent to dashoard'};
     }

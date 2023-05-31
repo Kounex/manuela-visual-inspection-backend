@@ -1,5 +1,5 @@
 
-export class AIImage {
+export class YOLOImage {
     constructor(
         public id: number,
         public text: string,
