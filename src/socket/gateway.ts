@@ -1,18 +1,19 @@
 import { ConnectedSocket, OnGatewayConnection, OnGatewayDisconnect, WebSocketGateway } from '@nestjs/websockets';
+import { Socket } from 'socket.io';
 
 @WebSocketGateway({ cors: { origin: [process.env.UI_URL], }})
 export class SocketGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
-  handleConnection(@ConnectedSocket() client: any) {
+  handleConnection(@ConnectedSocket() client: Socket) {
     console.log(
-      `user ${client.user.id} with socket ${client.id} connected with device ${client.handshake?.query?.deviceId}`,
+      `Socket client ID ${client.id} CONNECTED via socket`,
     );
 
   }
 
-  handleDisconnect(@ConnectedSocket() client: any) {
+  handleDisconnect(@ConnectedSocket() client: Socket) {
     console.log(
-      `user ${client.user.id} with socket ${client.id} with device ${client.handshake?.query?.deviceId} DISCONNECTED`,
+      `Socket client ID ${client.id} DISCONNECTED via socket`,
     );
   }
 }
