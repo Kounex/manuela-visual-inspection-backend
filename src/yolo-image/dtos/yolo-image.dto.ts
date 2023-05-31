@@ -1,9 +1,13 @@
+import { IsNotEmpty } from "class-validator";
 
 export class YOLOImage {
-    constructor(
-        public id: number,
-        public text: string,
-        public status: number,
-        public image: string,
-    ) { }
+    @IsNotEmpty()
+    public id: number;
+
+    public text: string;
+    
+    public status: number;
+
+    @IsNotEmpty()
+    public image: string;
 }

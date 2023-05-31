@@ -16,9 +16,7 @@ export class YOLOImageController {
     public receiveAIImage(@Body() yoloImage: YOLOImage) {
         console.log(`Received Image: ${yoloImage.id}`);
 
-        if (yoloImage.id !== undefined) {
-            this.aiImageService.emitYOLOImage(yoloImage);
-        }
+        this.aiImageService.emitYOLOImage(yoloImage);
 
         return {msg: 'Image sent to dashoard'};
     }
