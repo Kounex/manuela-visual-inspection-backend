@@ -1,7 +1,8 @@
 import { ConnectedSocket, OnGatewayConnection, OnGatewayDisconnect, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
-import { Socket, Server } from 'socket.io';
+import { Server, Socket } from 'socket.io';
 
-@WebSocketGateway({ cors: { origin: [process.env.UI_URL], }})
+// @WebSocketGateway({ cors: { origin: [process.env.UI_URL], }})
+@WebSocketGateway({ cors: true })
 export class SocketGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   @WebSocketServer()
