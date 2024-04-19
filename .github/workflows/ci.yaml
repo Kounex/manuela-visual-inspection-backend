@@ -28,7 +28,7 @@ jobs:
 
       - name: Set release version
         run: |
-          VER=$(cat ./server/package.json | grep "version" | cut -f 2 -d ":" | cut -f 1 -d "+" | cut -f 1 -d , | xargs)
+          VER=$(cat ./package.json | grep "version" | cut -f 2 -d ":" | cut -f 1 -d "+" | cut -f 1 -d , | xargs)
           echo "APP_VERSION=$VER" >> $GITHUB_ENV
 
       - name: Extract metadata (tags, labels) for Docker
