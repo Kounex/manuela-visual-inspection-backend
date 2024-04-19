@@ -1,8 +1,8 @@
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { json } from 'express';
 import { AppModule } from './app.module';
 import { SocketAuthenticationAdapter } from './socket/authentication.adapter';
-import { json } from 'express';
-import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -26,6 +26,8 @@ async function bootstrap() {
       transformOptions: { enableImplicitConversion: true },
     }),
   );
+
+  app.enableCors();
 
   await app.listen(process.env.PORT || 8888, () => console.log(`Listening on: ${process.env.PORT || 8888}`));
 }
